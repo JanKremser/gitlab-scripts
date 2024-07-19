@@ -1,0 +1,46 @@
+{
+    "name": "Python 3",
+    //"image": "mcr.microsoft.com/devcontainers/python:1-3.9-bookworm",
+    // "features": {
+    //     "ghcr.io/meaningful-ooo/devcontainer-features/fish:1": { }
+    // },
+    "build": { "dockerfile": "Dockerfile" },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "pylint.args": [
+                    "--rcfile=/local_home/.pylintrc.toml"
+                ]
+            },
+            "extensions": [
+                "ms-python.black-formatter",
+                "ms-python.isort",
+                "ms-python.vscode-pylance",
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-python.pylint",
+                "diogonolasco.pyinit",
+                "slightc.pip-manager",
+                "visualstudioexptteam.vscodeintellicode",
+                "streetsidesoftware.code-spell-checker",
+                //
+                "ryanluker.vscode-coverage-gutters",
+                "huddleboards.youtrack-issues",
+                "mongodb.mongodb-vscode",
+                "postman.postman-for-vscode",
+                "gruntfuggly.todo-tree",
+                "zaaack.markdown-editor",
+                "eamodio.gitlens",
+                "fill-labs.dependi"
+            ]
+        }
+    },
+    "mounts": [
+        "source=/opt/youtrack-cli,target=/opt/youtrack-cli,type=bind,consistency=cached,readonly",
+        "source=${localEnv:HOME},target=/local_home,type=bind,consistency=cached,readonly",
+        "source=${localEnv:HOME}/.config/fish,target=/home/vscode/.config/fish,type=bind,consistency=cached,readonly",
+        "source=${localEnv:HOME}/.local/share/omf,target=/home/vscode/.local/share/omf,type=bind,consistency=cached,readonly",
+        "source=${localEnv:HOME}/.config/omf,target=/home/vscode/.config/omf,type=bind,consistency=cached,readonly"
+    ],
+    "postStartCommand": "export VISUAL=nano && export EDITOR=nano"
+}
