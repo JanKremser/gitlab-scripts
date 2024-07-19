@@ -3,7 +3,7 @@
 GITLAB_INSTANCE="<your-gitlab-instance>"
 ACCESS_TOKEN="<your-access-token>"
 
-FARST=$1
+FAST=$1
 BREAK_PROCESS="false"
 
 fetch_all_pages() {
@@ -55,7 +55,7 @@ echo "$PROJECTS" | jq -c '.[] | {id: .id, name: .name}' | while read PROJECT; do
             echo "  Pipeline ID: $PIPELINE_ID, Status: $PIPELINE_STATUS"
             echo "${POINTER}Job ID: $(echo "$JOB" | jq '.id'), Name: $(echo "$JOB" | jq -r '.name'), Status: $JOB_STATUS, Runner: $JOB_RUNNER"
 
-            if [[ "$FARST" == "farst" ]]; then
+            if [[ "$FAST" == "fast" ]]; then
                 BREAK_PROCESS="true"
                 break
             fi
