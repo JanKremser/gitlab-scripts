@@ -1,5 +1,7 @@
 # gitlab-scripts
 
+Please install “jq” for JSON parsing.
+
 ## find GitLab-Runner
 
 ```bash
